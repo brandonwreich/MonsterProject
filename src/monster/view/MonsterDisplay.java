@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class MonsterDisplay
 {
-	public void diplayText(String textToDisplay)
+	public void displayText(String textToDisplay)
 	{
 		JOptionPane.showMessageDialog(null,  textToDisplay);
 	}

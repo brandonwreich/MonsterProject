@@ -56,15 +56,15 @@ public class MonsterController
 		}
 		
 		System.out.println(currentMonster.getName() + " would like to know if you want to eat more");
-		String answer = myScanner.nextLine();
+		String answer = myScanner.next();
 		
-		if(answer.equals("Yes"))
+		if(answer.equals("yes"))
 		{
 			System.out.println("Okay what would you like to eat next?");
 			System.out.println("I have " + currentMonster.getArmCount() + " arms or " + currentMonster.getEyeCount() + " eyes or ");
 			System.out.println(currentMonster.getTentacleAmount() + " tentacles.");
 			System.out.println("Would you like to eat my arms, eyes, or tentcales??");
-			String eatNextAnswer = myScanner.nextLine();
+			String eatNextAnswer = myScanner.next();
 			
 			if(eatNextAnswer.equals("Arms")) //Arms
 			{
@@ -149,6 +149,10 @@ public class MonsterController
 			
 		}
 		
+//		popup.displayText("Hey look at me!!");
+//		String answerMe = popup.getResponse("How many meals are you eating today?");
+//		System.out.println(answerMe);
+//		popup.displayText(answer);
 	}
 	
 }
