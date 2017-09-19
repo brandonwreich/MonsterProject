@@ -56,7 +56,7 @@ public class MonsterController
 			System.out.println(currentMonster.getTentacleAmount() + " tentacles.");
 			String eatNextAnswer = myScanner.nextLine();
 			
-			if(eatNextAnswer.equals("Arms"))
+			if(eatNextAnswer.equals("Arms")) //Arms
 			{
 				System.out.println("Okay I have " + currentMonster.getArmCount() + "arms.");
 				System.out.println("How many would you like to eat?");
@@ -80,7 +80,7 @@ public class MonsterController
 					System.out.println("Thank you so much. I only have " + currentMonster.getArmCount() + " arms now.");
 				}
 			}
-			else if(eatNextAnswer.equals("eyes"))
+			else if(eatNextAnswer.equals("eyes")) //Eyes
 			{
 				System.out.println("Okay, I have " + currentMonster.getEyeCount() + " eyes.");
 				System.out.println("How many would you like to eat?");
@@ -104,7 +104,7 @@ public class MonsterController
 					System.out.println("Thank you so much! I now have " + currentMonster.getEyeCount() + " eyes.");
 				}
 			}
-			else if(eatNextAnswer.equals("tentacles"))
+			else if(eatNextAnswer.equals("tentacles")) //Tentacles
 			{
 				System.out.println("Okay, I have " + currentMonster.getTentacleAmount() + "tentacles.");
 				System.out.println("How many would you like to eat?");
