@@ -1,5 +1,6 @@
 package monster.controller;
 
+//Need to import in order for things to work
 import monster.model.MarshmallowMonster;
 import java.util.Scanner;
 import monster.view.MonsterDisplay;
@@ -49,7 +50,7 @@ public class MonsterController
 		
 //		System.out.println("How many do you want to eat??");
 		
-		int specialAnswer;
+		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		
 		if(isValidInteger(unconverted))
@@ -59,7 +60,9 @@ public class MonsterController
 		
 		Scanner myScanner; //Declares the Scanner
 		myScanner = new Scanner(System.in); //Instantiates the Scanner
-		int consumed = myScanner.nextInt();
+	
+		int consumed = 0;
+		consumed = specialAnswer;
 		
 		if(consumed < 0)
 		{
@@ -78,6 +81,8 @@ public class MonsterController
 			currentMonster.setArmCount(currentMonster.getArmCount() - consumed);
 			System.out.println("Thank you so much! I only have " + currentMonster.getArmCount() + " arms now.");
 		}
+		
+		//Eat More?
 		
 		System.out.println(currentMonster.getName() + " would like to know if you want to eat more.");
 		String answer = myScanner.next();
@@ -186,6 +191,7 @@ public class MonsterController
 	}
 
 	//Helper Methods
+	//wrapper classes are Type.parseType() 
 	
 	private boolean isValidInteger(String sample)
 	{

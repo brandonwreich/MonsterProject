@@ -3,6 +3,10 @@ package monster.model;
 public class MarshmallowMonster
 {
 	//Declaration section for the data members
+	//String can hold anything
+	//int can hold whole numbers up to 2 Billion and down to -2 Billion
+	//double can hold whole numbers up to 2 * 10^306 and down to -2 * 10^306
+	//boolean can hold true or false
 	private String name;
 	private int eyeCount;
 	private int armCount;
@@ -72,6 +76,9 @@ public class MarshmallowMonster
 	{
 		this.hasBloop = hasBloop;
 	}
+	
+	//toString  sends out a description
+	
 	public String toString()
 	{
 		String description = "Hi, I am a weird monster! My name is " + name + " and I have " + eyeCount;

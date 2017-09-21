@@ -6,6 +6,7 @@ public class MonsterDisplay
 {
 	public void displayText(String textToDisplay)
 	{
+		//void means you get no return
 		JOptionPane.showMessageDialog(null,  textToDisplay);
 	}
 	
