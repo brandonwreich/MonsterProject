@@ -149,10 +149,10 @@ public class MonsterController
 			
 		}
 		
-//		popup.displayText("Hey look at me!!");
-//		String answerMe = popup.getResponse("How many meals are you eating today?");
-//		System.out.println(answerMe);
-//		popup.displayText(answer);
+		popup.displayText("Hey look at me!!");
+		String answerMe = popup.getResponse("How many meals are you eating today?");
+		System.out.println(answerMe);
+		popup.displayText(answerMe);
 	}
 	
 }
