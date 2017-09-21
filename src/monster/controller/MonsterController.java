@@ -15,23 +15,44 @@ public class MonsterController
 	public void start()
 	{
 		MarshmallowMonster sample = new MarshmallowMonster();
-		System.out.println(sample);
+		//System.out.println(sample);
+		
+		popup.displayText(sample.toString());
 		
 		MarshmallowMonster realMonster = new MarshmallowMonster("George", 2, 10, 8, true);
-		System.out.println(realMonster);
+//		System.out.println(realMonster);
 		
-		System.out.println("Brandon is hungry, so he is going to eat an eye");
+		popup.displayText(realMonster.toString());
+		
+//		System.out.println("Brandon is hungry, so he is going to eat an eye");
+		
+		popup.displayText("Brandon is hungry, so he is going to eat an eye");
+		
 		realMonster.setEyeCount(1);
-		System.out.println(realMonster);
+//		System.out.println(realMonster);
+		
+		popup.displayText(realMonster.toString());
 		
 		interactWithTheMonster(realMonster);
 	}
 	
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
+
 	{
-		System.out.println(currentMonster.getName() + " wants know what to eat next");
-		System.out.println(currentMonster.getName() + " suggests arms, he has " + currentMonster.getArmCount());
-		System.out.println("How many do you want to eat??");
+//		System.out.println(currentMonster.getName() + " wants know what to eat next");
+		
+		popup.displayText(currentMonster.getName() + " wants to know what to eat next");
+		
+//		System.out.println(currentMonster.getName() + " suggests arms, he has " + currentMonster.getArmCount());
+		
+		popup.displayText(currentMonster.getName() + "suggests arms, he has " + currentMonster.getArmCount());
+		
+//		System.out.println("How many do you want to eat??");
+		
+		int specialAnswer;
+		String unconverted = popup.getResponse("How many do you want to eat?");
+		
+		specialAnswer = Integer.parseInt(unconverted);
 		
 		Scanner myScanner; //Declares the Scanner
 		myScanner = new Scanner(System.in); //Instantiates the Scanner
@@ -55,20 +76,21 @@ public class MonsterController
 			System.out.println("Thank you so much! I only have " + currentMonster.getArmCount() + " arms now.");
 		}
 		
-		System.out.println(currentMonster.getName() + " would like to know if you want to eat more");
+		System.out.println(currentMonster.getName() + " would like to know if you want to eat more.");
 		String answer = myScanner.next();
 		
 		if(answer.equals("yes"))
 		{
 			System.out.println("Okay what would you like to eat next?");
-			System.out.println("I have " + currentMonster.getArmCount() + " arms or " + currentMonster.getEyeCount() + " eyes or ");
-			System.out.println(currentMonster.getTentacleAmount() + " tentacles.");
+			System.out.println("I have " + currentMonster.getArmCount() + " arms or " + currentMonster.getEyeCount() + " eyes or " +currentMonster.getTentacleAmount() + " tentacles.");
 			System.out.println("Would you like to eat my arms, eyes, or tentcales??");
 			String eatNextAnswer = myScanner.next();
 			
-			if(eatNextAnswer.equals("Arms")) //Arms
+			//Arms
+			
+			if(eatNextAnswer.equals("arms"))
 			{
-				System.out.println("Okay I have " + currentMonster.getArmCount() + "arms.");
+				System.out.println("Okay I have " + currentMonster.getArmCount() + " arms.");
 				System.out.println("How many would you like to eat?");
 				int armsConsumed = myScanner.nextInt();
 				
@@ -90,7 +112,10 @@ public class MonsterController
 					System.out.println("Thank you so much. I only have " + currentMonster.getArmCount() + " arms now.");
 				}
 			}
-			else if(eatNextAnswer.equals("eyes")) //Eyes
+			
+			//Eyes
+			
+			else if(eatNextAnswer.equals("eyes"))
 			{
 				System.out.println("Okay, I have " + currentMonster.getEyeCount() + " eyes.");
 				System.out.println("How many would you like to eat?");
@@ -114,7 +139,10 @@ public class MonsterController
 					System.out.println("Thank you so much! I now have " + currentMonster.getEyeCount() + " eyes.");
 				}
 			}
-			else if(eatNextAnswer.equals("tentacles")) //Tentacles
+			
+			//Tentacles
+			
+			else if(eatNextAnswer.equals("tentacles"))
 			{
 				System.out.println("Okay, I have " + currentMonster.getTentacleAmount() + "tentacles.");
 				System.out.println("How many would you like to eat?");
@@ -153,8 +181,29 @@ public class MonsterController
 		String answerMe = popup.getResponse("How many meals are you eating today?");
 		System.out.println(answerMe);
 		popup.displayText(answerMe);
+		
+		popup.displayText("I am so bored.");
+		String answerThis = popup.getResponse("How are you doing?");
 	}
+
+	//Helper Methods
 	
+	private boolean isValidInteger(String sample)
+	{
+		boolean valid = false;
+		
+		try
+		{
+			Integer.parseInt(sample);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			popup.displayText("Only integer values are valid: " + sample + " is not.");
+		}
+		
+		return valid;
+	}
 }
 		
 	
