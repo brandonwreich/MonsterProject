@@ -23,6 +23,11 @@ public class MonsterController
 //			count += 1;
 //		}
 		
+//		for (int loop = 0; loop < 15; loop += 1)
+//		{
+//			popup.displayText("I am looping " + (loop + 1) + " time(s) out of 15");
+//		}
+		
 		MarshmallowMonster sample = new MarshmallowMonster();
 //		System.out.println(sample);
 		
@@ -64,6 +69,12 @@ public class MonsterController
 		if(isValidInteger(unconverted))
 		{
 			specialAnswer = Integer.parseInt(unconverted);
+		}
+		
+		while(!isValidInteger(unconverted))
+		{
+			popup.displayText("Try again!");
+			unconverted = popup.getResponse("How many arms???");
 		}
 		
 		Scanner myScanner; //Declares the Scanner
@@ -110,23 +121,40 @@ public class MonsterController
 				System.out.println("How many would you like to eat?");
 				int armsConsumed = myScanner.nextInt();
 				
-				if(armsConsumed < 0) //If they put in a negative number
+				while(armsConsumed < 0)
 				{
-					System.out.println("You cannont eat a negative amount silly human!");
+					System.out.println("You can't eat a negative amount silly human!");
+					System.out.println("How many do you want to eat?");
+					armsConsumed = myScanner.nextInt();
 				}
-				else if(armsConsumed == 0) //If they put in 0
+				
+				while(armsConsumed > currentMonster.getArmCount()) //If they put in a number greater than the amount of arms
+				{
+					System.out.println("That's immpossible!! I only have " + currentMonster.getArmCount() + " arms!!");
+					System.out.println("How many do you want to eat?");
+					armsConsumed = myScanner.nextInt();
+				}
+				
+				if(armsConsumed == 0) //If they put in 0
 				{
 					System.out.println("Not that hungry are you?");
 				}
-				else if(armsConsumed > currentMonster.getArmCount()) //If they put in a number greater than the amount of arms
-				{
-					System.out.println("That's immpossible!! I only have " + currentMonster.getArmCount() + " arms!!");
-				}
+				
 				else
 				{
 					currentMonster.setArmCount(currentMonster.getArmCount() - armsConsumed);
 					System.out.println("Thank you so much. I only have " + currentMonster.getArmCount() + " arms now.");
 				}
+				
+//				if(armsConsumed < 0) //If they put in a negative number
+//				{
+//					System.out.println("You cannont eat a negative amount silly human!");
+//				}
+				
+//				else if(armsConsumed > currentMonster.getArmCount())
+//				{
+//					System.out.println("That's impossible!! I only have " + currentMonster.getArmCount() + " arms.");
+//				}
 			}
 			
 			//Eyes
@@ -137,50 +165,84 @@ public class MonsterController
 				System.out.println("How many would you like to eat?");
 				int eyesConsumed = myScanner.nextInt();
 				
-				if(eyesConsumed < 0) //If they put in a negative number
+				while(eyesConsumed < 0)
 				{
-					System.out.println("You cannot eat a negative amount silly human!!");
+					System.out.println("You can't eat a negative amount silly human!!");
+					System.out.println("How many do you want to eat?");
+					eyesConsumed = myScanner.nextInt();
 				}
-				else if(eyesConsumed == 0) //If they put in a 0
+				while(eyesConsumed > currentMonster.getEyeCount())
+				{
+					System.out.println("That's impossible!! I only have "+ currentMonster.getEyeCount() + " eyes");
+					System.out.println("How many do you want to eat?");
+				}
+				
+				 if(eyesConsumed == 0) //If they put in a 0
 				{
 					System.out.println("Not that hungry are you?");
 				}
-				else if(eyesConsumed > currentMonster.getEyeCount()) //If they put in a number greater than the amount of eyes
-				{	
-					System.out.println("That's impossible!! I only have " + currentMonster.getEyeCount() + " eyes!!");
-				}
+				 
 				else
 				{
 					currentMonster.setEyeCount(currentMonster.getEyeCount() - eyesConsumed);
 					System.out.println("Thank you so much! I now have " + currentMonster.getEyeCount() + " eyes.");
 				}
+				
+//				if(eyesConsumed < 0) //If they put in a negative number
+//				{
+//					System.out.println("You cannot eat a negative amount silly human!!");
+//				}
+				 
+//				else if(eyesConsumed > currentMonster.getEyeCount()) //If they put in a number greater than the amount of eyes
+//				{	
+//					System.out.println("That's impossible!! I only have " + currentMonster.getEyeCount() + " eyes!!");
+//				}
+				 
+
 			}
 			
 			//Tentacles
 			
 			else if(eatNextAnswer.equals("tentacles"))
 			{
-				System.out.println("Okay, I have " + currentMonster.getTentacleAmount() + "tentacles.");
+				System.out.println("Okay, I have " + currentMonster.getTentacleAmount() + " tentacles.");
 				System.out.println("How many would you like to eat?");
 				int tentaclesConsumed = myScanner.nextInt();
 				
-				if(tentaclesConsumed < 0) //If they put in a negative number
+				while(tentaclesConsumed < 0)
 				{
 					System.out.println("You can't eat a negative amount silly human!!");
+					System.out.println("How many do you want to eat?");
+					tentaclesConsumed = myScanner.nextInt();
 				}
-				else if(tentaclesConsumed == 0) //If they put in 0
+				
+				while(tentaclesConsumed > currentMonster.getTentacleAmount())
+				{
+					System.out.println("That's impossible!! I only have " + currentMonster.getTentacleAmount() + " tentacles!");
+					System.out.println("How many do you want to eat?");
+					tentaclesConsumed = myScanner.nextInt();
+				}
+				
+				if(tentaclesConsumed == 0) //If they put in 0
 				{
 					System.out.println("Not very hungry are you?");
 				}
-				else if(tentaclesConsumed > currentMonster.getTentacleAmount()) //If they put in a number greater than the number of tentacles
-				{
-					System.out.println("That's impossible!! I only have " + currentMonster.getTentacleAmount() + "tentacles!!");
-				}
+				
 				else
 				{
 					currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - tentaclesConsumed);
-					System.out.println("Thank you so much! Now I have " + currentMonster.getTentacleAmount() + "tentacles.");
+					System.out.println("Thank you so much! Now I have " + currentMonster.getTentacleAmount() + " tentacles.");
 				}
+//				if(tentaclesConsumed < 0) //If they put in a negative number
+//				{
+//					System.out.println("You can't eat a negative amount silly human!!");
+//				}
+			
+//				else if(tentaclesConsumed > currentMonster.getTentacleAmount()) //If they put in a number greater than the number of tentacles
+//				{
+//					System.out.println("That's impossible!! I only have " + currentMonster.getTentacleAmount() + "tentacles!!");
+//				}
+	
 			}
 		}
 		else if(answer.equals("maybe"))
