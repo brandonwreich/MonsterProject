@@ -30,21 +30,17 @@ public class MonsterController
 		
 		MarshmallowMonster sample = new MarshmallowMonster();
 //		System.out.println(sample);
-		
 		popup.displayText(sample.toString());
 		
 		MarshmallowMonster realMonster = new MarshmallowMonster("George", 2, 10, 8, true);
 //		System.out.println(realMonster);
-		
 		popup.displayText(realMonster.toString());
 		
 //		System.out.println("Brandon is hungry, so he is going to eat an eye");
-		
 		popup.displayText("Brandon is hungry, so he is going to eat an eye");
 		
 		realMonster.setEyeCount(1);
 //		System.out.println(realMonster);
-		
 		popup.displayText(realMonster.toString());
 		
 		interactWithTheMonster(realMonster);
@@ -54,15 +50,12 @@ public class MonsterController
 
 	{
 //		System.out.println(currentMonster.getName() + " wants know what to eat next");
-		
 		popup.displayText(currentMonster.getName() + " wants to know what to eat next");
 		
 //		System.out.println(currentMonster.getName() + " suggests arms, he has " + currentMonster.getArmCount());
-		
 		popup.displayText(currentMonster.getName() + "suggests arms, he has " + currentMonster.getArmCount());
 		
 //		System.out.println("How many do you want to eat??");
-		
 		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		
@@ -117,15 +110,21 @@ public class MonsterController
 			
 			if(eatNextAnswer.equals("arms"))
 			{
-				System.out.println("Okay I have " + currentMonster.getArmCount() + " arms.");
-				System.out.println("How many would you like to eat?");
-				int armsConsumed = myScanner.nextInt();
+//				System.out.println("Okay I have " + currentMonster.getArmCount() + " arms.");
+				popup.displayText("Okay I have " + currentMonster.getArmCount() + " arms.");
+//				System.out.println("How many would you like to eat?");
+//				int armsConsumed = myScanner.nextInt();
+				int armAnswer = 0;
+				String armsConsumed = popup.getResponse("How many would you like to eat?");
+				if(ifValidInterger)
 				
 				while(armsConsumed < 0)
 				{
-					System.out.println("You can't eat a negative amount silly human!");
-					System.out.println("How many do you want to eat?");
-					armsConsumed = myScanner.nextInt();
+//					System.out.println("You can't eat a negative amount silly human!");
+					popup.displayText("You can't eat a negative amount silly human!");
+//					System.out.println("How many do you want to eat?");
+//					armsConsumed = myScanner.nextInt();
+					popup.getResponse("How many do you want to eat?");
 				}
 				
 				while(armsConsumed > currentMonster.getArmCount()) //If they put in a number greater than the amount of arms
