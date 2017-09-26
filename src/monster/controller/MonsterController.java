@@ -15,8 +15,16 @@ public class MonsterController
 	
 	public void start()
 	{
+//		boolean finished = true;
+//		int count = 0;
+//		while(count < 100)
+//		{
+//			popup.displayText("I am so neat! " + count);
+//			count += 1;
+//		}
+		
 		MarshmallowMonster sample = new MarshmallowMonster();
-		//System.out.println(sample);
+//		System.out.println(sample);
 		
 		popup.displayText(sample.toString());
 		
