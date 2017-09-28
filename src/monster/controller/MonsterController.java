@@ -125,15 +125,19 @@ public class MonsterController
 		
 		//Eat More?
 		
-		System.out.println(currentMonster.getName() + " would like to know if you want to eat more.");
-		String answer = myScanner.next();
+//		System.out.println(currentMonster.getName() + " would like to know if you want to eat more.");
+//		String answer = myScanner.next();
+		String answer = popup.getResponse(currentMonster.getName() + " would like to know if you want to eat more.");
 		
 		if(answer.equals("yes"))
 		{
-			System.out.println("Okay what would you like to eat next?");
-			System.out.println("I have " + currentMonster.getArmCount() + " arms or " + currentMonster.getEyeCount() + " eyes or " +currentMonster.getTentacleAmount() + " tentacles.");
-			System.out.println("Would you like to eat my arms, eyes, or tentcales??");
-			String eatNextAnswer = myScanner.next();
+//			System.out.println("Okay what would you like to eat next?");
+			popup.displayText("Okay what would you like to eat next?");
+//			System.out.println("I have " + currentMonster.getArmCount() + " arms or " + currentMonster.getEyeCount() + " eyes or " + currentMonster.getTentacleAmount() + " tentacles.");
+			popup.displayText("I have " + currentMonster.getArmCount() + " arms or " + currentMonster.getEyeCount() + " eyes or " + currentMonster.getTentacleAmount() + " tentacles.");
+//			System.out.println("Would you like to eat my arms, eyes, or tentcales??");
+//			String eatNextAnswer = myScanner.next();
+			String eatNextAnswer = popup.getResponse("Woudl you like to eat my arms, eyes, or tentcales??");
 			
 			//Arms
 			
@@ -143,6 +147,7 @@ public class MonsterController
 				popup.displayText("Okay I have " + currentMonster.getArmCount() + " arms.");
 //				System.out.println("How many would you like to eat?");
 				int armsConsumed = myScanner.nextInt();
+//				int armsConsumed = popup.getResponse("How many would you like to eat?")
 //				int armAnswer = 0;
 //				String armsConsumed = popup.getResponse("How many would you like to eat?");
 //				if(ifValidInterger)
