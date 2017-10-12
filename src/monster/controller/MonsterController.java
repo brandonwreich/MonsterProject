@@ -78,13 +78,10 @@ public class MonsterController
 	private void interactWithTheMonster(MarshmallowMonster currentMonster)
 
 	{
-//		System.out.println(currentMonster.getName() + " wants know what to eat next");
 		popup.displayText(currentMonster.getName() + " wants to know what to eat next");
 		
-//		System.out.println(currentMonster.getName() + " suggests arms, he has " + currentMonster.getArmCount());
 		popup.displayText(currentMonster.getName() + "suggests arms, he has " + currentMonster.getArmCount());
 		
-//		System.out.println("How many do you want to eat??");
 		int specialAnswer = 0;
 		String unconverted = popup.getResponse("How many do you want to eat?");
 		
@@ -125,32 +122,23 @@ public class MonsterController
 		
 		//Eat More?
 		
-//		System.out.println(currentMonster.getName() + " would like to know if you want to eat more.");
-//		String answer = myScanner.next();
 		String answer = popup.getResponse(currentMonster.getName() + " would like to know if you want to eat more.");
 		
 		if(answer.equals("yes"))
 		{
-//			System.out.println("Okay what would you like to eat next?");
+
 			popup.displayText("Okay what would you like to eat next?");
-//			System.out.println("I have " + currentMonster.getArmCount() + " arms or " + currentMonster.getEyeCount() + " eyes or " + currentMonster.getTentacleAmount() + " tentacles.");
 			popup.displayText("I have " + currentMonster.getArmCount() + " arms or " + currentMonster.getEyeCount() + " eyes or " + currentMonster.getTentacleAmount() + " tentacles.");
-//			System.out.println("Would you like to eat my arms, eyes, or tentcales??");
-//			String eatNextAnswer = myScanner.next();
-			String eatNextAnswer = popup.getResponse("Woudl you like to eat my arms, eyes, or tentcales??");
+
+			String eatNextAnswer = popup.getResponse("Would you like to eat my arms, eyes, or tentcales??");
 			
 			//Arms
 			
 			if(eatNextAnswer.equals("arms"))
 			{
-//				System.out.println("Okay I have " + currentMonster.getArmCount() + " arms.");
 				popup.displayText("Okay I have " + currentMonster.getArmCount() + " arms.");
-//				System.out.println("How many would you like to eat?");
+				System.out.println("How many would you like to eat?");
 				int armsConsumed = myScanner.nextInt();
-//				int armsConsumed = popup.getResponse("How many would you like to eat?")
-//				int armAnswer = 0;
-//				String armsConsumed = popup.getResponse("How many would you like to eat?");
-//				if(ifValidInterger)
 				
 				while(armsConsumed < 0)
 				{
@@ -163,31 +151,33 @@ public class MonsterController
 				
 				while(armsConsumed > currentMonster.getArmCount()) //If they put in a number greater than the amount of arms
 				{
-					System.out.println("That's immpossible!! I only have " + currentMonster.getArmCount() + " arms!!");
-					System.out.println("How many do you want to eat?");
-					armsConsumed = myScanner.nextInt();
+//					System.out.println("That's impossible!! I only have " + currentMonster.getArmCount() + " arms!!");
+					popup.displayText("That's impossible!! I only have " + currentMonster.getArmCount() + " arms!!");
+//					System.out.println("How many do you want to eat?");
+					popup.getResponse("How many do you want to eat??");
 				}
 				
 				if(armsConsumed == 0) //If they put in 0
 				{
 					System.out.println("Not that hungry are you?");
 				}
-				
 				else
 				{
 					currentMonster.setArmCount(currentMonster.getArmCount() - armsConsumed);
 					System.out.println("Thank you so much. I only have " + currentMonster.getArmCount() + " arms now.");
 				}
-				
-//				if(armsConsumed < 0) //If they put in a negative number
+//				else if(armsConsumed < 0) //If they put in a negative number
 //				{
-//					System.out.println("You cannont eat a negative amount silly human!");
+//				System.out.println("You cannot eat a negative amount silly human!");
+//				popup.displayText("You can't eat a negative amount silly human!");
 //				}
-				
+//				
 //				else if(armsConsumed > currentMonster.getArmCount())
 //				{
-//					System.out.println("That's impossible!! I only have " + currentMonster.getArmCount() + " arms.");
+///				System.out.println("That's impossible!! I only have " + currentMonster.getArmCount() + " arms.");
+//					popup.displayText("That's impossible!! I only have " + currentMonster.getArmCount() + " arms.");
 //				}
+
 			}
 			
 			//Eyes
